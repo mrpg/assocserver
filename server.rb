@@ -13,7 +13,7 @@ server = TCPServer.new 31111
 loop do
 	Thread.start(server.accept) do |client|
 		l = client.readline
-		
+
 		if l[0] == 'R'
 			mx_mind.synchronize {
 				tmp = mind[l[1..-1].strip]
@@ -22,8 +22,9 @@ loop do
 			client.write tmp
 		elsif l.strip == 'W'+pw
 			r = client.gets.strip
-			mind[r] = ''
 			mx_mind.synchronize {
+				mind[r] = ''
+
 				while line = client.read(10*1024*1024)
 					mind[r] += line
 				end

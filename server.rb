@@ -22,7 +22,7 @@ loop do
 			client.write tmp
 		elsif l.strip == 'W'+pw
 			r = client.gets.strip
-			mind[r] = ""
+			mind[r] = ''
 			mx_mind.synchronize {
 				while line = client.read(10*1024*1024)
 					mind[r] += line

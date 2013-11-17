@@ -32,5 +32,5 @@ send the following, followed by a newline character:
 
 	Rtest
 
-The server will instantly spawn a thread to send you the contents. If **test** does not
+The server will instantly send you the contents after a lock has been acquired. If **test** does not
 yet exist, the server will close the connection instantly.
